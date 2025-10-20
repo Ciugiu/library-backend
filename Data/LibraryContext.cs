@@ -10,7 +10,9 @@ public class LibraryContext : DbContext
         : base(options)
     {
     }
-    
-    public DbSet<Authors> Authors {get; set;}
-    public DbSet<Books> Books {get; set;}
+    public DbSet<Authors> Authors { get; set; }
+    public DbSet<Books> Books { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Borrow> Borrows { get; set; }
 }

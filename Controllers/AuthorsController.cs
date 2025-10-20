@@ -1,8 +1,5 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebApplication1.Data;
-using WebApplication1.Entities;
+using WebApplication1.DTOs;
 using WebApplication1.Services;
 
 namespace WebApplication1.Controllers;
@@ -12,10 +9,9 @@ namespace WebApplication1.Controllers;
 public class AuthorsController : ControllerBase
 {
     private readonly AuthorsService _service;
-    
-    public AuthorsController(LibraryContext context)
+    public AuthorsController(AuthorsService service)
     {
-        _service = new AuthorsService(context);
+        _service = service;
     }
 
     [HttpGet]
@@ -25,8 +21,13 @@ public class AuthorsController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Authors> PostAuthor(Authors author)
+    public ActionResult<AuthorDTO> PostAuthor(CreateAuthorDTO createDto)
     {
-        return _service.Create(author);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        var authorDto = _service.Create(createDto);
+        return Ok(authorDto);
     }
 }

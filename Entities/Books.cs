@@ -10,18 +10,15 @@ public class Books
     public int Id { get; set; }
     [StringLength(255)] 
     public string? Title { get; set; }
-    
-    // Foreign key to Authors
     public int? AuthorId { get; set; }
-    
-    // Navigation property to Authors
-    [ForeignKey("AuthorId"), AuthorBook]
+    [ForeignKey("AuthorId")]
     public Authors? Author { get; set; }
-    
+    public int? CategoryId { get; set; }
+    [ForeignKey("CategoryId")]
+    public Category? Category { get; set; }
     [StringLength(50)]
     public string? Language { get; set; }
-    [StringLength(50)]
-    public string? Category { get; set; }
-    [StringLength(50), Year]
+    [Year]
     public Int16? PublishedYear { get; set; }
+    public ICollection<Borrow> Borrows { get; set; } = new List<Borrow>();
 }

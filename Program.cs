@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1;
 using WebApplication1.Data;
+using WebApplication1.Middleware;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -12,14 +14,21 @@ namespace WebApplication1
 
             builder.Services.AddDbContext<LibraryContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            
-            // Add services to the container.
 
+            builder.Services.AddScoped<AuthorsService>();
+            builder.Services.AddScoped<BooksService>();
+            builder.Services.AddScoped<UserService>();
+            builder.Services.AddScoped<CategoryService>();
+            builder.Services.AddScoped<BorrowService>();
+            
+            // Add services to the container
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
             var app = builder.Build();
+
+            app.UseMiddleware<ExceptionMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
