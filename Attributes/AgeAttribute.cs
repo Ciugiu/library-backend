@@ -17,11 +17,16 @@ public class AgeAttribute : ValidationAttribute
         
         var age = Convert.ToInt32(value);
 
-        if (age >= 18)
+        if (age >= 0 && age <= 150 && age >= 18)
         {
             return ValidationResult.Success;
-        } else {
-        return new ValidationResult(ErrorMessage);
         }
+        
+        if (age < 18)
+        {
+            return new ValidationResult("Age must be 18 or older.");
+        }
+        
+        return new ValidationResult("Age must be between 0 and 150.");
     }
 }

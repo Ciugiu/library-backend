@@ -10,13 +10,22 @@ public class YearAttribute : ValidationAttribute
     {
         if (value == null)
         {
-            return new ValidationResult("The year cannot be null.");
+            return ValidationResult.Success; // Year is optional
         }
 
-        if (value.GetType() != typeof(Int16))
+        if (value.GetType() != typeof(Int32))
         {
-            return new ValidationResult("Year is of wrong type.");
+            return new ValidationResult("Year must be a number.");
         }
-        return new ValidationResult("Error validating the year.");
+
+        var year = Convert.ToInt32(value);
+        var currentYear = DateTime.Now.Year;
+
+        if (year < 1000 || year > currentYear)
+        {
+            return new ValidationResult($"Year must be between 1000 and {currentYear}.");
+        }
+
+        return ValidationResult.Success;
     }
 }

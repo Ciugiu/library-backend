@@ -1,0 +1,381 @@
+{
+  "info": {
+    "_postman_id": "library-api-collection",
+    "name": "Library API - WebApplication1",
+    "description": "Complete Postman collection for testing all Library API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authors",
+      "item": [
+        {
+          "name": "Get All Authors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Authors",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Authors"]
+            },
+            "description": "Retrieves all authors from the database"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Author",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Austen\",\n  \"email\": \"jane.austen@example.com\",\n  \"age\": 45\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Authors",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Authors"]
+            },
+            "description": "Creates a new author"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for managing authors"
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Books"]
+            },
+            "description": "Retrieves all books from the database"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Book By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Books/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Books", "1"]
+            },
+            "description": "Retrieves a specific book by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Pride and Prejudice\",\n  \"authorId\": 1,\n  \"categoryId\": 1,\n  \"language\": \"English\",\n  \"publishedYear\": 1813\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Books"]
+            },
+            "description": "Creates a new book"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Books/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Books", "1"]
+            },
+            "description": "Deletes a book by ID"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for managing books"
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Users"]
+            },
+            "description": "Retrieves all users from the database"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Users", "1"]
+            },
+            "description": "Retrieves a specific user by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phoneNumber\": \"+1234567890\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Users"]
+            },
+            "description": "Creates a new user"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Users", "1"]
+            },
+            "description": "Deletes a user by ID"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for managing users"
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories"]
+            },
+            "description": "Retrieves all categories from the database"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Category By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories", "1"]
+            },
+            "description": "Retrieves a specific category by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Fiction\",\n  \"description\": \"Fictional literature and novels\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories"]
+            },
+            "description": "Creates a new category"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories", "1"]
+            },
+            "description": "Deletes a category by ID"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for managing categories"
+    },
+    {
+      "name": "Borrows",
+      "item": [
+        {
+          "name": "Get All Borrows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Borrows",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Borrows"]
+            },
+            "description": "Retrieves all borrow records from the database"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Borrow By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Borrows/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Borrows", "1"]
+            },
+            "description": "Retrieves a specific borrow record by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Borrows By User ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Borrows/user/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Borrows", "user", "1"]
+            },
+            "description": "Retrieves all borrow records for a specific user"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Borrow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"bookId\": 1,\n  \"dueDate\": \"2025-11-21T00:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Borrows",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Borrows"]
+            },
+            "description": "Creates a new borrow record"
+          },
+          "response": []
+        },
+        {
+          "name": "Return Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"returnDate\": \"2025-10-25T00:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Borrows/1/return",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Borrows", "1", "return"]
+            },
+            "description": "Marks a book as returned by updating the borrow record"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Borrow",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Borrows/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Borrows", "1"]
+            },
+            "description": "Deletes a borrow record by ID"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for managing book borrowing"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5299",
+      "type": "string"
+    }
+  ]
+}

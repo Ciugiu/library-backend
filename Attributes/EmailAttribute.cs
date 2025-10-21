@@ -7,7 +7,7 @@ public class EmailAttribute : ValidationAttribute
 {
     public EmailAttribute(){} 
     
-    static string pattern = @"^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$";
+    static string pattern = @"^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$";
         
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
@@ -26,6 +26,6 @@ public class EmailAttribute : ValidationAttribute
         {
             return ValidationResult.Success;
         }
-        return base.IsValid(value, validationContext);
+        return new ValidationResult("Invalid email format");
     }
 }
