@@ -21,6 +21,17 @@ namespace WebApplication1
             builder.Services.AddScoped<CategoryService>();
             builder.Services.AddScoped<BorrowService>();
             
+            // Configure CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend", policy =>
+                {
+                    policy.AllowAnyOrigin()  // Allows requests from any origin (for development)
+                          .AllowAnyMethod()  // Allows any HTTP method (GET, POST, PUT, DELETE, etc.)
+                          .AllowAnyHeader(); // Allows any headers
+                });
+            });
+            
             // Add services to the container
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -37,6 +48,9 @@ namespace WebApplication1
             }
 
             app.UseHttpsRedirection();
+
+            // Enable CORS - must be before UseAuthorization
+            app.UseCors("AllowFrontend");
 
             app.UseAuthorization();
 
